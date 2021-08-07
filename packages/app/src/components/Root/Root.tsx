@@ -85,6 +85,7 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
       <SidebarDivider />
       <SidebarScrollWrapper>
         <SidebarItem icon={MapIcon} to="tech-radar" text="Tech Radar" />
+        <SidebarItem icon={ExtensionIcon} to="fossa" text="FOSSA" />
       </SidebarScrollWrapper>
       <SidebarSpace />
       <SidebarDivider />

@@ -46,6 +46,14 @@ proxy:
   '/test':
     target: 'https://example.com'
     changeOrigin: true
+  '/fossa':
+    target: https://app.fossa.io/api
+    allowedMethods: ['GET']
+    headers:
+      Authorization: token ${FOSSA_API_TOKEN}
+
+# fossa:
+#   organizationId: 26734
 
 # Reference documentation http://backstage.io/docs/features/techdocs/configuration
 # Note: After experimenting with basic setup, use CI/CD to generate docs

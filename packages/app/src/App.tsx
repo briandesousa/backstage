@@ -22,6 +22,8 @@ import { Root } from './components/Root';
 import { AlertDisplay, OAuthRequestDialog } from '@backstage/core-components';
 import { createApp, FlatRoutes } from '@backstage/core-app-api';
 
+import { FossaPage } from '@backstage/plugin-fossa';
+
 const app = createApp({
   apis,
   bindRoutes({ bind }) {
@@ -60,6 +62,7 @@ const routes = (
     <Route path="/catalog-import" element={<CatalogImportPage />} />
     <Route path="/search" element={<SearchPage />} />
     <Route path="/settings" element={<UserSettingsPage />} />
+    <Route path="/fossa" element={<FossaPage />} />
   </FlatRoutes>
 );
 

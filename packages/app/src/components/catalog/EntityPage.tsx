@@ -50,6 +50,7 @@ import {
 } from '@backstage/plugin-org';
 import { EntityTechdocsContent } from '@backstage/plugin-techdocs';
 import { EmptyState } from '@backstage/core-components';
+import { EntityFossaCard } from '@backstage/plugin-fossa';
 
 const cicdContent = (
   // This is an example of how you can implement your company's logic in entity page.
@@ -84,10 +85,13 @@ const overviewContent = (
       <EntityAboutCard variant="gridItem" />
     </Grid>
     <Grid item md={4} xs={12}>
-      <EntityLinksCard />
+      <EntityFossaCard />
     </Grid>
     <Grid item md={8} xs={12}>
       <EntityHasSubcomponentsCard variant="gridItem" />
+    </Grid>
+    <Grid item md={4} xs={12}>
+      <EntityLinksCard />
     </Grid>
   </Grid>
 );

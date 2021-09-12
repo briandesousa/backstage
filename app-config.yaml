@@ -51,6 +51,12 @@ proxy:
     allowedMethods: ['GET']
     headers:
       Authorization: token ${FOSSA_API_TOKEN}
+  '/snyk':
+    target: https://snyk.io/api/v1
+    headers:
+      User-Agent: tech-services/backstage-plugin/1.0
+      Authorization:
+        $env: token ${SNYK_TOKEN}   
 
 # fossa:
 #   organizationId: 26734

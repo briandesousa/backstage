@@ -51,6 +51,7 @@ import {
 import { EntityTechdocsContent } from '@backstage/plugin-techdocs';
 import { EmptyState } from '@backstage/core-components';
 import { EntityFossaCard } from '@backstage/plugin-fossa';
+import { SnykOverview, EntitySnykContent } from 'backstage-plugin-snyk';
 
 const cicdContent = (
   // This is an example of how you can implement your company's logic in entity page.
@@ -81,14 +82,17 @@ const cicdContent = (
 
 const overviewContent = (
   <Grid container spacing={3} alignItems="stretch">
-    <Grid item md={6}>
+    <Grid item md={6} xs={12}>
       <EntityAboutCard variant="gridItem" />
+    </Grid>
+    <Grid item md={4}> xs={12}
+      <SnykOverview />
+    </Grid>
+    <Grid item md={4} xs={12}>
+      <EntityHasSubcomponentsCard variant="gridItem" />
     </Grid>
     <Grid item md={4} xs={12}>
       <EntityFossaCard />
-    </Grid>
-    <Grid item md={8} xs={12}>
-      <EntityHasSubcomponentsCard variant="gridItem" />
     </Grid>
     <Grid item md={4} xs={12}>
       <EntityLinksCard />
@@ -130,6 +134,10 @@ const serviceEntityPage = (
 
     <EntityLayout.Route path="/docs" title="Docs">
       <EntityTechdocsContent />
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/snyk" title="Snyk">
+      <EntitySnykContent />
     </EntityLayout.Route>
   </EntityLayout>
 );

@@ -18,6 +18,7 @@ import React, { useContext, PropsWithChildren } from 'react';
 import { Link, makeStyles } from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
 import ExtensionIcon from '@material-ui/icons/Extension';
+import GitHub from '@material-ui/icons/GitHub';
 import MapIcon from '@material-ui/icons/MyLocation';
 import LibraryBooks from '@material-ui/icons/LibraryBooks';
 import CreateComponentIcon from '@material-ui/icons/AddCircleOutline';
@@ -86,6 +87,7 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
       <SidebarScrollWrapper>
         <SidebarItem icon={MapIcon} to="tech-radar" text="Tech Radar" />
         <SidebarItem icon={ExtensionIcon} to="fossa" text="FOSSA" />
+        <SidebarItem icon={GitHub} to="/grm" text="Release Manager" />
       </SidebarScrollWrapper>
       <SidebarSpace />
       <SidebarDivider />

@@ -23,6 +23,8 @@ import { AlertDisplay, OAuthRequestDialog } from '@backstage/core-components';
 import { createApp, FlatRoutes } from '@backstage/core-app-api';
 
 import { FossaPage } from '@backstage/plugin-fossa';
+import { GitReleaseManagerPage } from '@backstage/plugin-git-release-manager';
+import { Box, Typography } from '@material-ui/core';
 
 const app = createApp({
   apis,
@@ -63,6 +65,22 @@ const routes = (
     <Route path="/search" element={<SearchPage />} />
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/fossa" element={<FossaPage />} />
+    <Route path="/grm" element={
+      <GitReleaseManagerPage 
+        features={{
+          custom: {
+            factory: () => {
+              return (
+                <Box style={{padding: '20px'}}>
+                  <Typography variant="h4">Release instructions</Typography>
+                  <p>Don't forget to do this when releasing this component...</p>
+                </Box>
+              )
+            }
+          }
+        }} 
+      />
+    } />
   </FlatRoutes>
 );
 

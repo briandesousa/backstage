@@ -41,6 +41,7 @@ import {
 import {
   isGithubActionsAvailable,
   EntityGithubActionsContent,
+  EntityRecentGithubActionsRunsCard
 } from '@backstage/plugin-github-actions';
 import {
   EntityUserProfileCard,
@@ -92,6 +93,9 @@ const overviewContent = (
     </Grid>
     <Grid item md={4} xs={12}>
       <EntityLinksCard />
+    </Grid>
+    <Grid item xs={12}>
+      <EntityRecentGithubActionsRunsCard  limit={4} variant="gridItem" />
     </Grid>
   </Grid>
 );

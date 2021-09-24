@@ -19,15 +19,31 @@ import { apis } from './apis';
 import { entityPage } from './components/catalog/EntityPage';
 import { Root } from './components/Root';
 
-import { AlertDisplay, OAuthRequestDialog } from '@backstage/core-components';
+import { AlertDisplay, OAuthRequestDialog, SignInPage, SignInProviderConfig } from '@backstage/core-components';
 import { createApp, FlatRoutes } from '@backstage/core-app-api';
 
 import { FossaPage } from '@backstage/plugin-fossa';
 import { GitReleaseManagerPage } from '@backstage/plugin-git-release-manager';
 import { Box, Typography } from '@material-ui/core';
+import { githubAuthApiRef } from '@backstage/core-plugin-api';
+
+const githubProvider: SignInProviderConfig = {
+  id: 'github-auth-provider',
+  title: 'GitHub',
+  message: 'Sign in using GitHub',
+  apiRef: githubAuthApiRef
+};
 
 const app = createApp({
   apis,
+  components: {
+    SignInPage: props => (
+      <SignInPage 
+        {...props}
+        auto 
+        providers={['guest', githubProvider]} />
+    )
+  },
   bindRoutes({ bind }) {
     bind(catalogPlugin.externalRoutes, {
       createComponent: scaffolderPlugin.routes.root,
@@ -38,7 +54,7 @@ const app = createApp({
     bind(scaffolderPlugin.externalRoutes, {
       registerComponent: catalogImportPlugin.routes.importPage,
     });
-  },
+  }
 });
 
 const AppProvider = app.getProvider();

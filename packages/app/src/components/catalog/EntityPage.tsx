@@ -51,6 +51,11 @@ import {
 import { EntityTechdocsContent } from '@backstage/plugin-techdocs';
 import { EmptyState } from '@backstage/core-components';
 import { EntityFossaCard } from '@backstage/plugin-fossa';
+import {
+  EntityHarborContent,
+  EntityHarborWidgetCard,
+  isHarborAvailable
+} from '@bestsellerit/backstage-plugin-harbor';
 
 const cicdContent = (
   // This is an example of how you can implement your company's logic in entity page.
@@ -93,6 +98,13 @@ const overviewContent = (
     <Grid item md={4} xs={12}>
       <EntityLinksCard />
     </Grid>
+    <EntitySwitch>
+      <EntitySwitch.Case if={isHarborAvailable}>
+        <Grid item>
+         <EntityHarborWidgetCard/>
+        </Grid>
+      </EntitySwitch.Case>
+    </EntitySwitch>
   </Grid>
 );
 
@@ -130,6 +142,10 @@ const serviceEntityPage = (
 
     <EntityLayout.Route path="/docs" title="Docs">
       <EntityTechdocsContent />
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/harbor" title="Harbor">
+      <EntityHarborContent />
     </EntityLayout.Route>
   </EntityLayout>
 );

@@ -27,6 +27,7 @@ import proxy from './plugins/proxy';
 import techdocs from './plugins/techdocs';
 import search from './plugins/search';
 import { PluginEnvironment } from './types';
+import harbor from './plugins/harbor';
 
 function makeCreateEnv(config: Config) {
   const root = getRootLogger();
@@ -68,6 +69,10 @@ async function main() {
   apiRouter.use('/techdocs', await techdocs(techdocsEnv));
   apiRouter.use('/proxy', await proxy(proxyEnv));
   apiRouter.use('/search', await search(searchEnv));
+  
+  const harborEnv = useHotMemoize(module, () => createEnv('harbor'));
+  apiRouter.use('/harbor', await harbor(harborEnv));
+
   apiRouter.use(notFoundHandler());
 
   const service = createServiceBuilder(module)

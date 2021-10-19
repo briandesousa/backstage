@@ -9,6 +9,7 @@
     "dev": "concurrently -k \"yarn start\" \"yarn start-backend\"",
     "start": "yarn workspace app start",
     "start-backend": "yarn workspace backend start",
+    "start-db": "docker compose -f D:\\containers\\postgres\\docker-compose.yml up",
     "build": "lerna run build",
     "build-image": "yarn workspace backend build-image",
     "tsc": "tsc",

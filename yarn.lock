@@ -2311,10 +2311,10 @@
     winston "^3.2.1"
     yn "^4.0.0"
 
-"@bestsellerit/backstage-plugin-harbor@^0.1.9":
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/@bestsellerit/backstage-plugin-harbor/-/backstage-plugin-harbor-0.1.9.tgz#b218c6bac381cfdfaea2a6ffcc93a3a6b4a395b4"
-  integrity sha512-1zD0cGno9FkMFloAKhTQ1KO08zazRpQ30wSDy239sShb13+elOb+4pfQgAvH3z45XOyv78Xo8wXUCV9tM0EnEg==
+"@bestsellerit/backstage-plugin-harbor@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@bestsellerit/backstage-plugin-harbor/-/backstage-plugin-harbor-0.1.11.tgz#0656ac3edd9badf2cdb3e25f895ecc5238eaeeea"
+  integrity sha512-peog5ncfEZxWjuZwe+cGETWVwHdKM06D8lpmyCTiIh0+b8YKyOSgqvSi2686tNdQiCQ7wJ3yKE0lrjA+ODlMow==
   dependencies:
     "@backstage/catalog-model" "^0.9.0"
     "@backstage/core-app-api" "^0.1.10"
@@ -2327,6 +2327,7 @@
     react-data-table-component "^6.11.7"
     react-dom "^16.13.1"
     react-router "6.0.0-beta.0"
+    styled-components "^5.3.1"
 
 "@braintree/sanitize-url@^5.0.2":
   version "5.0.2"

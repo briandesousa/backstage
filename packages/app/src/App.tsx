@@ -26,8 +26,27 @@ import { FossaPage } from '@backstage/plugin-fossa';
 import { GitReleaseManagerPage } from '@backstage/plugin-git-release-manager';
 import { Box, Typography } from '@material-ui/core';
 
+import { githubAuthApiRef } from '@backstage/core-plugin-api';
+import { SignInProviderConfig, SignInPage } from '@backstage/core-components';
+
+const githubProvider: SignInProviderConfig = {
+id: 'github-auth-provider',
+  title: 'GitHub',
+  message: 'Sign in using GitHub',
+  apiRef: githubAuthApiRef,
+};
+
 const app = createApp({
   apis,
+  components: {
+    SignInPage: props => (
+      <SignInPage
+        {...props}
+        auto
+        provider={githubProvider}
+      />
+    )
+  },
   bindRoutes({ bind }) {
     bind(catalogPlugin.externalRoutes, {
       createComponent: scaffolderPlugin.routes.root,
@@ -38,7 +57,7 @@ const app = createApp({
     bind(scaffolderPlugin.externalRoutes, {
       registerComponent: catalogImportPlugin.routes.importPage,
     });
-  },
+  }
 });
 
 const AppProvider = app.getProvider();

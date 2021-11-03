@@ -56,6 +56,7 @@ import {
   EntityHarborWidgetCard,
   isHarborAvailable
 } from '@bestsellerit/backstage-plugin-harbor';
+import { FirehydrantCard } from '@backstage/plugin-firehydrant';
 
 const cicdContent = (
   // This is an example of how you can implement your company's logic in entity page.
@@ -86,6 +87,9 @@ const cicdContent = (
 
 const overviewContent = (
   <Grid container spacing={3} alignItems="stretch">
+    <Grid item md={6}>
+      <FirehydrantCard />
+    </Grid>
     <Grid item md={6}>
       <EntityAboutCard variant="gridItem" />
     </Grid>
